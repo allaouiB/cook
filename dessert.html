@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الحلويات المغربية</title>
+  <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f2e7;
+      color: #333;
+    }
+    nav {
+      background-color: #8b0000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .search-bar {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #8b0000;
+      border-radius: 5px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+    .card h3 {
+      margin: 15px 0 10px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <nav>الحلويات المغربية</nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن وصفة..." onkeyup="filterRecipes()">
+  </div>
+  
+  <div class="gallery" id="recipeGallery">
+    
+    <div class="card" data-name="بشكيطو">
+      <a href="dessert/bchkito.html">
+        <img src="img/bchkito.jpg" alt="بشكيطو">
+        <h3>بشكيطو</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="شباكية">
+      <a href="dessert/chbakya.html">
+        <img src="img/chbakya.jpg" alt="شباكية">
+        <h3>شباكية</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="كعب غزال">
+      <a href="dessert/kaabghzal.html">
+        <img src="img/kaabghzal.jpg" alt="كعب غزال">
+        <h3>كعب غزال</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="الفقاص">
+      <a href="dessert/faasse.html">
+        <img src="img/faasse.jpg" alt="الفقاص">
+        <h3>الفقاص</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="البقلاوة">
+      <a href="dessert/baalawa.html">
+        <img src="img/baalawa.jpg" alt="البقلاوة">
+        <h3>البقلاوة</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="المحنشة">
+      <a href="dessert/mhencha.html">
+        <img src="img/mhencha.jpg" alt="المحنشة">
+        <h3>المحنشة</h3>
+      </a>
+    </div>
+    
+    <div class="card" data-name="المقروط">
+      <a href="dessert/maakrout.html">
+        <img src="img/maakrout.jpg" alt="المقروط">
+        <h3>المقروط</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="السفوف">
+      <a href="dessert/sfouf.html">
+        <img src="img/sfouf.jpg" alt="السفوف">
+        <h3>السفوف</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="السفنج">
+      <a href="dessert/sfenj.html">
+        <img src="img/sfenj.jpg" alt="السفنج">
+        <h3>السفنج</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="بريوات">
+      <a href="dessert/briwate.html">
+        <img src="img/briwate.jpg" alt="بريوات">
+        <h3>بريوات</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="الغريبة">
+      <a href="dessert/ghriba.html">
+        <img src="img/ghriba.jpg" alt="الغريبة">
+        <h3>الغريبة</h3>
+      </a>
+    </div>
+   
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    function filterRecipes() {
+      // احصل على النص المدخل من المستخدم
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      // قم بتصفية البطاقات بناءً على النص المدخل
+      cards.forEach(card => {
+        const recipeName = card.getAttribute('data-name').toLowerCase();
+        if (recipeName.includes(searchInput)) {
+          card.style.display = 'block'; // أظهر البطاقة إذا تطابقت
+        } else {
+          card.style.display = 'none'; // أخفِ البطاقة إذا لم تتطابق
+        }
+      });
+    }
+  </script>
+</body>
+</html>

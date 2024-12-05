@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الطبخ المغربي</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f2e7;
+      color: #333;
+    }
+    nav {
+      background-color: #8b0000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .search-bar {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #8b0000;
+      border-radius: 5px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+    .card h3 {
+      margin: 15px 0 10px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <nav>الطبخ المغربي</nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن وصفة..." onkeyup="filterRecipes()">
+  </div>
+  
+  <div class="gallery" id="recipeGallery">
+    
+    <div class="card" data-name="طاجين">
+      <a href="cuisine/tajine.html">
+        <img src="img/tajine.jpg" alt="طاجين">
+        <h3>طاجين</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="كسكس">
+      <a href="cuisine/couscous.html">
+        <img src="img/couscous.jpg" alt="كسكس">
+        <h3>كسكس</h3>
+      </a>
+    </div>
+
+    <div class="card" data-name="بسطيلة">
+        <a href="cuisine/bastila.html">
+          <img src="img/bastila.jpg" alt="بسطيلة">
+          <h3>بسطيلة</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="المروزية">
+        <a href="cuisine/mrozya.html">
+          <img src="img/mrozya.jpg" alt="المروزية">
+          <h3>المروزية</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="الطنجية">
+        <a href="cuisine/tanjya.html">
+          <img src="img/tanjya.jpg" alt="الطنجية">
+          <h3>الطنجية</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="الزعلوك">
+        <a href="cuisine/zaalouk.html">
+          <img src="img/zaalouk.jpg" alt="الزعلوك">
+          <h3>الزعلوك</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="البيصارة">
+        <a href="cuisine/bissara.html">
+          <img src="img/bissara.jpg" alt="البيصارة">
+          <h3>البيصارة</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="الحرشة">
+        <a href="cuisine/harcha.html">
+          <img src="img/harcha.jpg" alt="الحرشة">
+          <h3>الحرشة</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="البطبوط">
+        <a href="cuisine/batbout.html">
+          <img src="img/batbout.jpg" alt="البطبوط">
+          <h3>البطبوط</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="المسمن">
+        <a href="cuisine/msemene.html">
+          <img src="img/msemene.jpg" alt="المسمن">
+          <h3>المسمن</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="البغرير">
+        <a href="cuisine/baghrir.html">
+          <img src="img/baghrir.jpg" alt="البغرير">
+          <h3>البغرير</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="الرفيسة">
+        <a href="cuisine/rfissa.html">
+          <img src="img/rfissa.jpg" alt="الرفيسة">
+          <h3>الرفيسة</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="الحريرة">
+        <a href="cuisine/harira.html">
+          <img src="img/harira.jpg" alt="الحريرة">
+          <h3>الحريرة</h3>
+        </a>
+    </div>
+
+    <div class="card" data-name="السفة">
+        <a href="cuisine/seffa.html">
+          <img src="img/seffa.jpg" alt="السفة">
+          <h3>السفة</h3>
+        </a>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    function filterRecipes() {
+      // احصل على النص المدخل من المستخدم
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      // قم بتصفية البطاقات بناءً على النص المدخل
+      cards.forEach(card => {
+        const recipeName = card.getAttribute('data-name').toLowerCase();
+        if (recipeName.includes(searchInput)) {
+          card.style.display = 'block'; // أظهر البطاقة إذا تطابقت
+        } else {
+          card.style.display = 'none'; // أخفِ البطاقة إذا لم تتطابق
+        }
+      });
+    }
+  </script>
+</body>
+</html>
